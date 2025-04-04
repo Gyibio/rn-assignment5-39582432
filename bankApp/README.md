@@ -46,8 +46,8 @@ This is a mobile application developed using *React Native with Expo. It impleme
 - react-native-screens
 
 ### 7. *App Screenshots*
-- ![1](./screenshots/HomeScreen(light).jpg)
-- ![2](./screenshots/SettingsScreen(light).jpg)
-- ![3](./screenshots/HomeScreen(dark).jpg)
-- ![4](./screenshots/SettingsScreen(dark).jpg)
+![1](./screenshots/HomeScreen(light).jpg)
+![2](./screenshots/SettingsScreen(light).jpg)
+![3](./screenshots/HomeScreen(dark).jpg)
+![4](./screenshots/SettingsScreen(dark).jpg)
 
