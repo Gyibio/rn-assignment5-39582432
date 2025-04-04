@@ -3,6 +3,8 @@ import React from 'react';
 import profile from '../assets/profile.png'
 import search from '../assets/search.png'
 import card from '../assets/Card.png'
+import themeContext from '../theme/ThemeContext';
+import { useContext } from 'react';
 
 const Actions = [
   {id: '1', title: 'Send', image: require("../assets/send.png") },
@@ -17,35 +19,40 @@ const Transactions =[
   {id: '3', image: require('../assets/moneyTransfer.png'), Label: 'Money Transfer', Description: 'Transaction', Amount: '$300'},
   {id: '4', image: require('../assets/grocery.png'), Label: 'Grocery', Description: 'Food', Amount: '-$88'},
 ]
+const HomeScreen = () => {
+  const theme = useContext(themeContext)
+
 
 const ActionItem = ({image,title})=>(
   <View style={styles.actionContainer}>
     <View style={styles.imageContainer}><Image source={image} style={styles.actionImage}/></View>
-    <Text style={styles.actionText}>{title}</Text>
+    <Text style={[styles.actionText, {color: theme.color}]}>{title}</Text>
   </View>
 )
 
 const TransactionItem =({image, Label, Description, Amount})=>(
   <View style={styles.transactionContainer}>
     <View style={styles.transactionImageContainer}><Image source={image} style={styles.transactionImage}/></View>
-    <View style={styles.transactionText}>
-      <Text style={styles.label}>{Label}</Text>
-      <Text style={styles.description}>{Description}</Text>
-    </View>
-    <Text style={[styles.amount, Label == 'Money Transfer' && styles.blueAmount]}>{Amount}</Text>
+    <View style={styles.transactionTextContainer}>
+      <View style={styles.transactionText}>
+        <Text style={[styles.label, {color: theme.color}]}>{Label}</Text>
+        <Text style={[styles.description, {color: theme.color}]}>{Description}</Text>
+      </View>
+    </View> 
+    <Text style={[styles.amount, Label == 'Money Transfer' && styles.blueAmount, {color: theme. color}]}>{Amount}</Text>
   </View>
 )
 
- const HomeScreen = () => {
+  
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView style={[styles.container, {backgroundColor: theme.backgroundColor}]}>
       <View style={styles.profileBlock}>
         <View style={styles.profileImage}>
           <Image source={profile}/>
         </View>
         <View style={styles.profileText}>
-          <Text style={styles.welcome}>Welcome back</Text>
-          <Text style={styles.profileName}>Eric Atsu</Text>
+          <Text style={[styles.welcome, {color: theme.color}]}>Welcome back</Text>
+          <Text style={[styles.profileName, {color: theme.color}]}>Eric Atsu</Text>
         </View>
         <View style={styles.searchIconContainer}>
           <Image source={search}
@@ -67,8 +74,8 @@ const TransactionItem =({image, Label, Description, Amount})=>(
       </View>
 
       <View style={styles.transactionHeader}>
-        <Text style={styles.transaction}>Transaction</Text>
-        <Text style={styles.sellAll}>Sell All</Text>
+        <Text style={[styles.transaction, {color: theme.color}]}>Transaction</Text>
+        <Text style={[styles.sellAll, {color: theme.color}]}>Sell All</Text>
       </View>
 
       <View style={styles.transactionFlatlist}>
@@ -177,12 +184,15 @@ const styles = StyleSheet.create({
     height: 50,
     width: 50,
     borderRadius: 25,
-    backgroundColor: '#f4f4f4',
+    backgroundColor: 'lightgray',
     alignItems: 'center',
     justifyContent: 'center'
   },
+  transactionTextContainer:{
+    
+  },
   transactionText:{
-    marginRight: 90,
+   marginRight: 90,
   },
   label: {
     fontSize: 18,
