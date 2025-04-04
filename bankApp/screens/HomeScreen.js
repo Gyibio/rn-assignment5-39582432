@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
 
   searchIconContainer: {
     marginLeft: 125,
-    backgroundColor: '#f4f4f4',
+    backgroundColor: 'lightgray',
     alignContent: 'center',
     justifyContent: 'center',
     width: 50,
@@ -140,7 +140,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   imageContainer:{
-    backgroundColor: "#f4f4f4",
+    backgroundColor: "lightgray",
     height:50,
     width: 50,
     borderRadius:25,
